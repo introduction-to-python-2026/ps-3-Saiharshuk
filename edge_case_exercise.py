@@ -1,15 +1,24 @@
 def move(my_list, direction):
+    # מוצא את המיקום של החזיר (ה-1)
+    pig_index = my_list.index(1)
 
-    # Finds the index of the one in the list
-    index_of_one = my_list.index(1)
+    # יוצר עותק מהרשימה כדי לעבוד עליו
+    new_positions = my_list[:]
 
-    # Move the one to the left or to the right
-    if direction == 'right':
-        my_list[index_of_one] = 0
-        my_list[index_of_one + 1] = 1
+    # מאפס את המקום הנוכחי של החזיר
+    new_positions[pig_index] = 0
 
-    elif direction == 'left':
-        my_list[index_of_one] = 0
-        my_list[index_of_one - 1] = 1
+    # מזיז ימינה
+    if direction == 'right' and pig_index < len(my_list) - 1:
+        new_positions[pig_index + 1] = 1
 
-    return my_list
+    # מזיז שמאלה
+    elif direction == 'left' and pig_index > 0:
+        new_positions[pig_index - 1] = 1
+
+    # אם אי אפשר לזוז (החזיר בקצה)
+    else:
+        new_positions[pig_index] = 1  # נשאר במקום
+
+    return new_positions
+
