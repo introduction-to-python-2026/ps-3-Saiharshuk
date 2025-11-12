@@ -6,6 +6,6 @@ def approximate_pi(n_terms):
         
         pi_over_4_sum += term
 
-pi_approximation = 4 * pi_over_4_sum
+    pi_approximation = 4 * pi_over_4_sum
 
-return pi_approximation
+    return pi_approximation
